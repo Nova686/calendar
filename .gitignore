@@ -1,13 +1,43 @@
+###> Back
+
 ###> symfony/framework-bundle ###
-/.env.local
-/.env
-/.env.local.php
-/.env.*.local
-/config/secrets/prod/prod.decrypt.private.php
-/public/bundles/
-/var/
-/vendor/
+/back/.env.local
+/back/.env
+/back/.env.local.php
+/back/.env.*.local
+/back/config/secrets/prod/prod.decrypt.private.php
+/back/public/bundles/
+/back/var/
+/back/vendor/
 ###< symfony/framework-bundle ###
 ###> lexik/jwt-authentication-bundle ###
-/config/jwt/*.pem
+/back/config/jwt/*.pem
 ###< lexik/jwt-authentication-bundle ###
+
+###< Back
+
+###> Front
+
+# dependencies
+/front/node_modules
+/front/.pnp
+/front.pnp.js
+
+# testing
+/front/coverage
+
+# production
+/front/build
+
+# misc
+/front.DS_Store
+/front.env.local
+/front.env.development.local
+/front.env.test.local
+/front.env.production.local
+
+/frontnpm-debug.log*
+/frontyarn-debug.log*
+/frontyarn-error.log*
+
+###< Front
