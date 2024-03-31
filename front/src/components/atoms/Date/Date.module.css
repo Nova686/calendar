@@ -1,0 +1,15 @@
+.dateContainer {
+   flex: 1;
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+   min-width: 50px;
+   max-width: 100px;
+   font-size: 20px;
+   text-align: center;
+   background-color: red;
+}
+
+.dateContainer p {
+   margin: 0;
+}

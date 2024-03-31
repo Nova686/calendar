@@ -1,0 +1,15 @@
+.login-inputs
+{
+    display: flex;
+    justify-content: space-around;
+    padding: 8px;
+    flex-wrap: wrap;
+}
+
+.login-inputs input
+{
+    font-size: 16px;
+    border-radius: 6px;
+    border: 2px solid black;
+    padding: 4px 8px;
+}

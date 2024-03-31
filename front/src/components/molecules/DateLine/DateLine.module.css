@@ -1,0 +1,12 @@
+.dateLine {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   max-width: 800px;
+   gap: 5px;
+}
+
+hr {
+   height: 25px;
+}
