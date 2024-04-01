@@ -1,5 +1,7 @@
 Ce projet est un gestionnaire de rendez-vous avec affichage sur un calendrier.
-Il comprend une API Symfony et un front ReactJs
+Il comprend une API Symfony et un front ReactJs.
+
+Sur la fin du projet, ma machine a décidé de ne plus reconnaître mysql donc j'ai développé le reste "à l'aveuglette".
 
 # Backend
 
