@@ -36,6 +36,9 @@ class Events
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $duration = null;
+
     #[ORM\Column(length: 255)]
     private ?string $status = null;
 
@@ -81,6 +84,19 @@ class Events
     public function setEnd(\DateTimeInterface $end): static
     {
         $this->end = $end;
+
+        return $this;
+    }
+
+
+    public function getDuration(): ?\DateTimeInterface
+    {
+        return $this->duration;
+    }
+
+    public function setDuration(\DateTimeInterface $duration): static
+    {
+        $this->duration = $duration;
 
         return $this;
     }

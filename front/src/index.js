@@ -4,12 +4,19 @@ import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <React.StrictMode>
-        <App/>
-    </React.StrictMode>
+    <>
+        {/* <React.StrictMode> */}
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+        <ToastContainer />
+        {/* </React.StrictMode> */}
+    </>
 );
 
 // If you want your app to work offline and load faster, you can change

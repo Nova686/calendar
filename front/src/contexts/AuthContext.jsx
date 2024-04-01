@@ -1,16 +1,28 @@
-import React, {createContext} from "react";
-import {Auth} from "../pages";
-import functions from "../functions";
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { isUserAuthenticated } from "../services/AuthService";
 
-const cookie = functions.getCookie();
-const AuthContext = createContext(cookie);
+export const AuthContext = createContext(undefined);
 
-const AuthProvider = ({value, ...props}) => {
-    return (
-        <AuthContext.Provider value={value}>
-            {value.isAuth || (typeof cookie === "string" && cookie.trim() !== "") ? props.children : <Auth/>}
-        </AuthContext.Provider>
-    )
-}
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
+};
+export const AuthProvider = ({ children }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-export {AuthContext, AuthProvider}
+  useEffect(() => {
+    try {
+      const result = isUserAuthenticated();
+      setIsAuthenticated(result);
+    } catch (error) {
+      console.error("Error checking authentication status:", error);
+    }
+  }, []);
+
+  const value = { isAuthenticated, setIsAuthenticated };
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+};

@@ -1,6 +1,8 @@
-import Menu from "./Menu/Menu";
-import Login from "./Auth/Login";
-import Register from "./Auth/Register";
-import CalendarGrid from './CalendarGrid/CalendarGrid';
+import Header from "./Header/Header";
+import Login from "./Login/Login";
+import Register from "./Register/Register";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import ScheduleEventModal from "./ScheduleEventModal/ScheduleEventModal";
+import WeeklyCalendar from "./WeeklyCalendar/WeeklyCalendar"
 
-export { Menu, Login, Register, CalendarGrid };
+export { Header, Login, Register, PrivateRoute, ScheduleEventModal, WeeklyCalendar };

@@ -9,7 +9,7 @@ const HourStyle = styled.div`
 const Hour = ({ hour, ...props }) => {
   return (
     <HourStyle {...props} className={styles.hourContainer}>
-      {hour}
+      {hour}:00
     </HourStyle>
   );
 };

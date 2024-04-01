@@ -58,30 +58,29 @@ class AppFixtures extends Fixture
     private function GenerateEvent(User $user): ?Events
     {
         $event = new Events();
+        $start = $event->getStart();
+        $end = $event->getEnd();
+        // I want to get a random starting point for my event in my slot, and be sure it can't end after event's end
+        $diffBetweenDates = (int)date_diff($end, $start);
+        $availableRange = $diffBetweenDates - $end;
 
-        // I want to get a random starting point for my event in my slot, and be sure it can't end after slot's end
-        // $diffBetweenDates = (int) (($slot->getEndDate()->getTimestamp() - $slot->getStartDate()->getTimestamp()) / 60);
-        // $serviceTypeDuration = $randomServiceType->getDuration()->i;
+        if ($availableRange < 0) {
+            return null;
+        }
 
-        // $availableRange = $diffBetweenDates - $serviceTypeDuration;
+        $randomStartMinutes = rand(0, $availableRange);
+        $randomStartDate = DateTime::createFromInterface($event->getStart());
+        $randomStartDate->add(new DateInterval("PT{$randomStartMinutes}M"));
 
-        // if ($availableRange < 0) {
-        //     return null;
-        // }
+        $randomHourMinutes = rand(0, 3) * 15;
+        $randomStartDate->setTime((int)$randomStartDate->format('H'), $randomHourMinutes, 0);
+        $randomEndDate = clone $randomStartDate;
+        $randomEndDate->add(new DateInterval("PT{$diffBetweenDates}M"));
 
-        // $randomStartMinutes = rand(0, $availableRange);
-        // $randomStartDate = DateTime::createFromInterface($slot->getStartDate());
-        // $randomStartDate->add(new DateInterval("PT{$randomStartMinutes}M"));
-
-        // $randomHourMinutes = rand(0, 3) * 15;
-        // $randomStartDate->setTime((int)$randomStartDate->format('H'), $randomHourMinutes, 0);
-        // $randomEndDate = clone $randomStartDate;
-        // $randomEndDate->add(new DateInterval("PT{$serviceTypeDuration}M"));
-
-        // $event->setStart($randomStartDate)
-        //     ->setEnd($randomEndDate)
-        //     ->setUser($user)
-        //     ->setStatus('active');
+        $event->setStart($randomStartDate)
+            ->setEnd($randomEndDate)
+            ->setUser($user)
+            ->setStatus('active');
 
         return $event;
     }
