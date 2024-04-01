@@ -17,9 +17,19 @@ const AddEventForm = ({
   return (
     <div className="d-flex flex-column">
       <h2 className="mb-4">Prendre un Rendez-vous</h2>
-      <InputText name={"name"} placeholder={"Entrez un nom"}></InputText>
+      <InputText
+        name={"name"}
+        placeholder={"Entrez un nom"}
+        value={selectedName}
+        onChange={setSelectedName}
+      ></InputText>
 
-      <InputText name={"client"} placeholder={"Entrez un client"}></InputText>
+      <InputText
+        name={"client"}
+        placeholder={"Entrez un client"}
+        value={selectedClient}
+        onChange={setSelectedClient}
+      ></InputText>
 
       <label>Heure du rendez-vous:</label>
       <ReactDatePicker
@@ -35,6 +45,8 @@ const AddEventForm = ({
       <InputText
         name={"description"}
         placeholder={"Entrez une description"}
+        value={selectedDescription}
+        onChange={setSelectedDescription}
       ></InputText>
       <Button
         onClick={onFormCompletion}

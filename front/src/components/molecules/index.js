@@ -1,5 +1,4 @@
 import NightModeSwitch from "./NightModeSwitch/NightModeSwitch";
-import EventWrapper from "./EventWrapper/EventWrapper";
 import AddEventForm from "./AddEventForm/AddEventForm";
 import AuthLink from "./AuthLink/AuthLink";
 import DayColumn from "./DayColumn/DayColumn";
@@ -9,4 +8,4 @@ import LandingLink from "./LandingLink/LandingLink";
 import LoginForm from "./LoginForm/Login";
 import RegisterForm from "./RegisterForm/Register";
 
-export { NightModeSwitch, EventWrapper, AddEventForm, AuthLink, DayColumn, FormSwitch, HourScale, LandingLink, LoginForm, RegisterForm };
+export { NightModeSwitch, AddEventForm, AuthLink, DayColumn, FormSwitch, HourScale, LandingLink, LoginForm, RegisterForm };
